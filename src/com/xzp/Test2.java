@@ -11,6 +11,8 @@ public class Test2 {
 		// TODO Auto-generated method stub
 		question1("z");
 		getChildren("abab");
+		palindrome(98);
+		System.out.println(isPalindrome(343));
 	}
 	
 	//输入一个字符，将字符转换为小写，将其对应的ASCII值加5后，输出结果。
@@ -45,6 +47,22 @@ public class Test2 {
         return list;
 	}
  
+	//判断是否为回文数
+	public static boolean palindrome(int num) {
+        String str = String.valueOf(num);
+        String reverse = new StringBuffer(str).reverse().toString();
+        System.out.println(str.equals(reverse));
+        return str.equals(reverse);
+    }
+	public static boolean isPalindrome(int x) {
+        int t = 0;
+        while (x > t) {
+            t = t * 10 + x % 10; // 从后往前取出
+            if (t == 0) return false; // 末尾为 0 肯定不是
+            x /= 10; // 从后往前去除
+        }
+        return (x == t || x == t / 10); // 偶位相等和奇位相等
+    }
 	
 	
 	
